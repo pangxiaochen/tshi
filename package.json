@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha --reporter spec",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -23,8 +22,6 @@
   "homepage": "https://github.com/pangxiaochen/tshi#readme",
   "devDependencies": {
     "chai": "^4.3.4",
-    "coveralls": "^3.1.0",
-    "istanbul": "^0.4.5",
     "mocha": "^8.3.2",
     "typescript": "^4.2.3"
   }
