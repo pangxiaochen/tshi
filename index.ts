@@ -5,7 +5,7 @@ export const common={
         while (i<list.length){
             if(list[i][key]===item.key){
                 isIndex=i;
-                return isIn;
+                return isIndex;
             }
             i++;
         }
