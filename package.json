@@ -1,6 +1,6 @@
 {
   "name": "gdtshi",
-  "version": "1.4.0",
+  "version": "1.7.1",
   "description": "create npm package with typescript",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,8 @@
   ],
   "author": "pangxiaochen",
   "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bugs": {
     "url": "https://github.com/pangxiaochen/tshi/issues"
   },
