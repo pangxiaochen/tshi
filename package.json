@@ -1,6 +1,6 @@
 {
   "name": "gdtshi",
-  "version": "1.7.1",
+  "version": "1.8.2",
   "description": "create npm package with typescript",
   "main": "index.js",
   "scripts": {
