@@ -138,7 +138,6 @@ var TreeTable = /** @class */ (function () {
         }
     };
     TreeTable.prototype.showNodes = function () {
-        debugger;
         return this.tableModel.filter(function (n) {
             return n._node.show;
         });
