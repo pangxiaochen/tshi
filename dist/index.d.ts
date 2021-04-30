@@ -14,7 +14,7 @@ export interface TreeTableNode extends XTreeNode {
         padding: string;
         collapsed: boolean;
         show: boolean;
-        parent: TreeTableNode | null;
+        parent: TreeTableNode;
     };
 }
 export interface TreeTableOptions<T extends TreeTableNode> {
@@ -24,30 +24,44 @@ export interface TreeTableOptions<T extends TreeTableNode> {
     openModel?: boolean;
     nodes: Array<T>;
 }
+export interface contrastItem {
+    id?: string;
+    userLabel?: string;
+    collapsed?: boolean;
+    show?: boolean;
+}
 export declare class TreeTable<T extends TreeTableNode> {
     protected TID_PREFIX: string;
     protected TID_SPLITER: string;
     protected TID_START: number;
     protected indentUnit: string;
     protected indentNumber: number;
-    protected options: TreeTableOptions<T> | null;
+    protected options: TreeTableOptions<T>;
     protected tableModel: Array<T>;
+    protected contraItems: Array<contrastItem>;
     constructor();
     getTableModel(): Array<T>;
     setOptions(options: TreeTableOptions<T>): void;
-    protected refresh(onlyUpdateId?: boolean, openAllModel?: boolean): void;
-    protected cleanModel(): void;
-    protected deleteNode(node: T): void;
-    protected deleteNodeGroup(node: T): void;
-    protected addNode(node: T, parent: T): void;
-    getNodeLocation(node: T): number;
-    protected regenerateTreeTable(root: T, level?: number, onlyUpdateId?: boolean, openModal?: boolean): void;
+    refresh(onlyUpdateId?: boolean, openModel?: boolean): void;
+    private regenerateTreeTable;
+    updateNodeId(root: T): void;
+    private cleanModel;
     protected setPadding(node: T): void;
-    protected initTreeTableNode(node: T, level?: number): void;
-    showNodes(): T[];
-    collapsNode(node: T): void;
-    uncollapse(node: any): void;
-    protected showTId(a: T, b: T): number;
-    commpareStringArray(a: string[], b: string[]): number;
+    protected initTreeTableNode(node: T): void;
+    protected collapse(node: T): void;
+    protected uncollapse(node: T): void;
+    shownNodes(): T[];
+    protected sortTId(a: T, b: T): number;
+    protected compareStringArray(a: string[], b: string[]): 0 | 1 | -1;
+    protected addNode(parent: T, child: T, onlyUpdateId?: boolean): void;
+    protected deleteNode(node: T, deleteTree?: boolean): void;
+    private cleanTreeNode;
+    protected addNodeGroup(parent: T, child: T, onlyUpdateId?: boolean): void;
+    protected deleteNodeGroup(node: T): void;
+    private deleteNodeGroupChildren;
+    getNodes(node: T, predicate: (a: T, b: T) => number): Array<T>;
+    getNode(predicate: (node: T) => number): T;
+    setContrastItem(): void;
+    setTableContastItem(): void;
 }
 export {};
