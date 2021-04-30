@@ -229,7 +229,7 @@ export class TreeTable<T extends TreeTableNode> {
         );
     }
 
-    private cleanModel() {
+    public cleanModel() {
         this.tableModel.splice(0, this.tableModel.length);
     }
 
@@ -237,7 +237,7 @@ export class TreeTable<T extends TreeTableNode> {
         node._node.padding = (node._node.tnLevel * this.indentNumber) *0.5 + this.indentUnit;
     }
 
-    protected initTreeTableNode(node: T) {
+    public initTreeTableNode(node: T) {
         if (node._node === undefined || node._node === null) {
             node._node = {
                 id: "",
@@ -250,7 +250,7 @@ export class TreeTable<T extends TreeTableNode> {
         }
     }
 
-    protected collapse(node: T) {
+    public collapse(node: T) {
         node._node.collapsed = true;
         this.tableModel
             .filter((n) => {
@@ -265,7 +265,7 @@ export class TreeTable<T extends TreeTableNode> {
 
     }
 
-    protected uncollapse(node: T) {
+    public uncollapse(node: T) {
         node._node.collapsed = false;
         node.children.forEach(n => {
             n._node.show = true;
@@ -327,8 +327,7 @@ export class TreeTable<T extends TreeTableNode> {
             return 0;
         }
     }
-
-    protected addNode(parent: T, child: T,onlyUpdateId:boolean=true) {
+    public addNode(parent: T, child: T,onlyUpdateId:boolean=true) {
         this.initTreeTableNode(child);
         if (parent === undefined || parent === null) {
             this.options.nodes.push(child);
@@ -352,7 +351,7 @@ export class TreeTable<T extends TreeTableNode> {
             });
         }
     }
-    protected deleteNode(node: T,deleteTree:boolean=false) {
+    public deleteNode(node: T,deleteTree:boolean=false) {
         let nodeId = node._node.id;
         for (let idx = this.tableModel.length - 1; idx >= 0; idx = idx - 1) {
             if (this.tableModel[idx]._node.id.indexOf(nodeId)>-1) {
@@ -374,10 +373,10 @@ export class TreeTable<T extends TreeTableNode> {
             }
         }
     }
-    private cleanTreeNode(node,state){
+    public cleanTreeNode(node,state){
       this.deleteNode(node,state);
     }
-    protected addNodeGroup(parent: T, child: T,onlyUpdateId:boolean=true){
+    public addNodeGroup(parent: T, child: T,onlyUpdateId:boolean=true){
        this.initTreeTableNode(child);
        if (parent === undefined || parent === null) {
          this.options.nodes.push(child);
@@ -403,7 +402,7 @@ export class TreeTable<T extends TreeTableNode> {
          }
        }
      }
-    protected deleteNodeGroup(node: T) {
+    public deleteNodeGroup(node: T) {
         let nodeId = node.id;
         for (let idx = 0; idx <this.tableModel.length;idx++) {
                 if(this.tableModel[idx].id==nodeId){
@@ -412,7 +411,7 @@ export class TreeTable<T extends TreeTableNode> {
         }
         this.deleteNodeGroupChildren(node);
     }
-    private deleteNodeGroupChildren(node){
+    public deleteNodeGroupChildren(node){
         if (node.children !== undefined && node.children !== null && node.children.length>0) {
             for (let cidx = 0; cidx <node.children.length;cidx++) {
                 for(let tInx=0;tInx<this.tableModel.length;tInx++){
