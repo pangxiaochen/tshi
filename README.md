@@ -44,17 +44,17 @@ export class TelemetryTreeComponent extends TreeTable<TreeTableNode> implements 
   compare(nodeA:any, nodeB:any): number {
     return 1;
   }
- treeOd(msg){
-   this.deleteNodeGroup(this.getNodeById(msg.objectId))
+ treeOd(id:string){
+   this.deleteNodeGroup(this.getNodeById(id))
  }
   getNodeById(id) {
     return this.getNode((n) => {
       return n.id === id ? 0 : -1;
     });
   }
-  treeAvc(msg){
-    let node=this.getNodeById(msg.objectId);
-    for(let [k,v] of Object.entries(msg.values)){
+  treeAvc(id:string,values:Object){
+    let node=this.getNodeById(id);
+    for(let [k,v] of Object.entries(values)){
         node.eq[k]=v
     }
   }
