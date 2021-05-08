@@ -9,6 +9,13 @@ import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
 # TreeTabel usage
 ## tree.ts
 ```
+import {Component,OnInit} from '@angular/core';
+import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
+@Component({
+  selector: 'telemetry-tree',
+  templateUrl: './telemetry-tree.component.html',
+  styleUrls: ['./telemetry-tree.component.scss']
+})
 export class TelemetryTreeComponent extends TreeTable<TreeTableNode> implements OnInit {
 
   constructor() { super();}
