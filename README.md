@@ -12,9 +12,9 @@ import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
 import {Component,OnInit} from '@angular/core';
 import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
 @Component({
-  selector: 'telemetry-tree',
-  templateUrl: './telemetry-tree.component.html',
-  styleUrls: ['./telemetry-tree.component.scss']
+  selector: 'tree',
+  templateUrl: './tree.component.html',
+  styleUrls: ['./tree.component.scss']
 })
 export class TelemetryTreeComponent extends TreeTable<TreeTableNode> implements OnInit {
 
@@ -78,7 +78,7 @@ export class TelemetryTreeComponent extends TreeTable<TreeTableNode> implements 
   }
  }
  ```
- ## tree.html (The UI framework of ng-zorro is used)
+ ## tree.component.html (The UI framework of ng-zorro is used)
  
  ```
  <nz-table  class="table table-hover mt-3" #basicTable [nzData]="shownNodes()">
