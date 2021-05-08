@@ -1,13 +1,13 @@
-# 安装
+# Install
 ```
 npm install gdtshi
 ```
-# 引用
+# Import
 ```
 import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
 ```
-# TreeTabel用法
-## ts里面的的用法
+# TreeTabel usage
+## tree.ts
 ```
 export class TelemetryTreeComponent extends TreeTable<TreeTableNode> implements OnInit {
 
@@ -71,7 +71,7 @@ export class TelemetryTreeComponent extends TreeTable<TreeTableNode> implements 
   }
  }
  ```
- ## HTML里面的用法 (用了NG-ZORRO的UI框架)
+ ## tree.html (The UI framework of ng-zorro is used)
  
  ```
  <nz-table  class="table table-hover mt-3" #basicTable [nzData]="shownNodes()">
