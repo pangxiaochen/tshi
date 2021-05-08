@@ -7,7 +7,7 @@ npm install gdtshi
 import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
 ```
 # TreeTabel usage
-## tree.ts
+## tree.component.ts
 ```
 import {Component,OnInit} from '@angular/core';
 import {TreeTable, TreeTableNode, TreeTableOptions} from "gdtshi";
